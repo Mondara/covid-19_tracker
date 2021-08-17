@@ -5,24 +5,24 @@ import cx from 'classnames';
 
 import styles from './Cards.module.css';
 
-const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
-    if (!confirmed) {
+const Cards = ({ data: { cases, recovered, deaths, updated } }) => {
+    if (!cases) {
         return 'Loading...'
     }
 
     const cardComponents = [{
         name: "Infected",
-        value: confirmed.value,
+        value: cases,
         text: "Number of active cases of COVID-19",
     },
     {
         name: "Recovered",
-        value: recovered.value,
+        value: recovered,
         text: "Number of recovered cases of COVID-19",
     },
     {
         name: "Deaths",
-        value: deaths.value,
+        value: deaths,
         text: "Number of deaths caused by COVID-19",
     }]
 
@@ -41,7 +41,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                                     separator=","
                                 />
                             </Typography>
-                            <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
+                            <Typography color="textSecondary">{new Date(updated).toDateString()}</Typography>
                             <Typography variant="body2">{content.text}</Typography>
                         </CardContent>
                     </Grid>

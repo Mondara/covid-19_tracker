@@ -4,7 +4,7 @@ import { fetchDailyData } from '../../api';
 
 import styles from './Chart.module.css';
 
-const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
+const Charts = ({ data: { cases, deaths, recovered }, country }) => {
 
     const [dailyData, setDailyData] = useState([]);
 
@@ -21,14 +21,20 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
             ? (
                 <Line
                     data={{
-                        labels: dailyData.map(({ date }) => date),
+                        labels: Object.keys(dailyData[0]),
                         datasets: [{
-                            data: dailyData.map(({ confirmed }) => confirmed),
+                            data: Object.values(dailyData[0]),
                             label: 'Infected',
-                            borderColor: '#3333ff',
+                            borderColor: 'rgba(0, 0, 255, 0.5)',
+                            fill: true,
+                        },
+                        {
+                            data: Object.values(dailyData[1]),
+                            label: 'Recovered',
+                            borderColor: 'rgba(0, 255, 0, 0.5)',
                             fill: true,
                         }, {
-                            data: dailyData.map(({ deaths }) => deaths),
+                            data: Object.values(dailyData[2]),
                             label: 'Deaths',
                             borderColor: 'red',
                             backgroundColor: 'rgba(255, 0, 0, 0.5)',
@@ -41,7 +47,7 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
     );
 
     const barChart = (
-        confirmed
+        cases
             ? (
                 <Bar
                     data={{
@@ -53,7 +59,7 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
                                 'rgba(0, 255, 0, 0.5)',
                                 'rgba(255, 0, 0, 0.5)'
                             ],
-                            data: [confirmed.value, recovered.value, deaths.value]
+                            data: [cases, recovered, deaths]
 
                         }]
                     }}
@@ -67,7 +73,7 @@ const Charts = ({ data: { confirmed, deaths, recovered }, country }) => {
 
     return (
         <div className={styles.container}>
-            {country? barChart: lineChart}
+            {country ? barChart : lineChart}
         </div>
     )
 }
