@@ -8,7 +8,12 @@ export const fetchData = async (country) => {
 
     try {
         
-        const { data: { cases, recovered, deaths, updated } } = await axios.get(country ? `${url}/countries/${country}`: `${url}/all`);
+        const { data: { cases, recovered, deaths, updated } } = await axios
+            .get(
+                country 
+                    ? `${url}/countries/${country}`
+                    : `${url}/all`
+                );
 
         return { cases, recovered, deaths, updated };
 
@@ -21,7 +26,13 @@ export const fetchDailyData = async () => {
     try {
         const { data: { cases, recovered, deaths } } = await axios.get(`${urlDailyData}/historical/all?lastdays=all`);
 
-        return [ cases, recovered, deaths ];
+        const modifiedData = {
+            dailyCases: Object.values(cases),
+            dailyRecovered: Object.values(recovered),
+            dailyDeaths: Object.values(deaths),
+            dailyDate: Object.keys(cases),
+        }
+        return modifiedData;
 
     } catch (error) {
         console.log(error);
@@ -31,7 +42,6 @@ export const fetchDailyData = async () => {
 export const fetchCountries = async () => {
     try {
         const { data } = await axios.get(`${url}/countries`);
-        
         
         return data.map(country => country.country);
 

@@ -10,7 +10,7 @@ const Charts = ({ data: { cases, deaths, recovered }, country }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            setDailyData(await fetchDailyData());
+            setDailyData([await fetchDailyData()]);
         }
 
         fetchData();
@@ -21,20 +21,20 @@ const Charts = ({ data: { cases, deaths, recovered }, country }) => {
             ? (
                 <Line
                     data={{
-                        labels: Object.keys(dailyData[0]),
+                        labels: dailyData[0].dailyDate,
                         datasets: [{
-                            data: Object.values(dailyData[0]),
+                            data: dailyData[0].dailyCases,
                             label: 'Infected',
                             borderColor: 'rgba(0, 0, 255, 0.5)',
                             fill: true,
                         },
                         {
-                            data: Object.values(dailyData[1]),
+                            data: dailyData[0].dailyRecovered,
                             label: 'Recovered',
                             borderColor: 'rgba(0, 255, 0, 0.5)',
                             fill: true,
                         }, {
-                            data: Object.values(dailyData[2]),
+                            data: dailyData[0].dailyDeaths,
                             label: 'Deaths',
                             borderColor: 'red',
                             backgroundColor: 'rgba(255, 0, 0, 0.5)',
