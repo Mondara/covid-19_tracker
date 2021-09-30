@@ -21,7 +21,7 @@ Allow users to see live global covid 19 information aswell as contry specific in
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./ScreenShots/Covid19_Tracker_Desktopv2.PNG)
 
 ### Links
 
@@ -64,4 +64,4 @@ I learned how to plot data using React Charts Library
 
 ## Acknowledgments
 
-I would live to acknowledge the youtube video made by JavaScript Mastery 'Build a COVID-19 Tracker Application" that helped me a lot when I set out to build this website. It provided me the overal design and layout aswell.
+I would live to acknowledge the youtube video made by JavaScript Mastery 'Build a COVID-19 Tracker Application" that helped me a lot when I set out to build this website. The video provided me with the overal design and layout.
