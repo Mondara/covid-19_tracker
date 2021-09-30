@@ -21,7 +21,7 @@ Allow users to see live global covid 19 information aswell as contry specific in
 
 ### Screenshot
 
-![](./ScreenShots/Covid19_Tracker_Desktopv2.PNG)
+![](./Screenshots/Covid19_Tracker_Desktopv2.PNG)
 
 ### Links
 
