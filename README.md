@@ -1,4 +1,4 @@
-# Frontend Mentor - Calculator app solution
+# Covid 19 Tracker
 
 This is a Covid 19 Tracker Built using React. 
 Allow users to see live global covid 19 information aswell as contry specific information.
