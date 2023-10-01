@@ -25,7 +25,7 @@ Allow users to see live global covid 19 information aswell as contry specific in
 
 ### Links
 
-- Live Site URL: (https://covid19-tracker-67.netlify.app/)
+- [Live Site URL:](https://covid19-tracker-67.netlify.app/)
 
 ## My process
 
@@ -37,7 +37,6 @@ Allow users to see live global covid 19 information aswell as contry specific in
 - CSS Grid
 - Responsive Design
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
 - [Create React App](https://github.com/facebook/create-react-app) - Create React App
 - [react-chartjs-2](https://www.npmjs.com/package/react-chartjs-2) - React Wrapper for Chart.js
 
